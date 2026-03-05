@@ -18,7 +18,7 @@
 **A fast, zero-dependency static analysis tool written in Rust**
 **that scans your codebase for OWASP Top 10 vulnerabilities**
 
-[![CI](https://github.com/19Gray/oxidize/actions/workflows/ci.yml/badge.svg)](https://github.com/19Gray/oxidize/actions)
+[![CI](https://github.com/19Gray/purionX/actions/workflows/ci.yml/badge.svg)](https://github.com/19Gray/purionX/actions)
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![OWASP Top 10](https://img.shields.io/badge/OWASP-Top%2010-red.svg)](https://owasp.org/Top10/)
@@ -49,13 +49,13 @@
 
 ## Overview
 
-**oxidize** is a static analysis CLI tool built in Rust that detects security vulnerabilities in source code and configuration files — before they reach production.
+**purionX** is a static analysis CLI tool built in Rust that detects security vulnerabilities in source code and configuration files — before they reach production.
 
 It scans your entire codebase in seconds with no external services, no API keys, and no cloud uploads. Every analysis runs entirely on your machine.
 
-### Why oxidize?
+### Why purionX?
 
-Most security tools are slow, expensive, or cloud-dependent. oxidize is:
+Most security tools are slow, expensive, or cloud-dependent. purionX is:
 
 - **Fast** — compiled Rust with parallel file walking; scans thousands of files in under a second
 - **Offline** — zero network calls, runs in air-gapped environments
@@ -81,7 +81,7 @@ Most security tools are slow, expensive, or cloud-dependent. oxidize is:
 This project is a **Cargo workspace** with three crates, each with a single responsibility:
 
 ```
-oxidize/
+purionX/
 ├── Cargo.toml                        ← Workspace root (shared dependencies)
 ├── Cargo.lock                        ← Lock file (commit this!)
 ├── .github/
@@ -161,18 +161,18 @@ rustc --version   # should print 1.75.0 or higher
 
 ```bash
 # Clone the repository
-git clone https://github.com/19Gray/oxidize.git
-cd oxidize
+git clone https://github.com/19Gray/purionX.git
+cd purionX
 
 # Build the release binary
 cargo build --release -p scanner-cli
 
 # The binary is now at:
-./target/release/oxidize --help
+./target/release/purionX --help
 
 # Optionally install it globally
 cargo install --path crates/scanner-cli
-oxidize --help
+purionX --help
 ```
 
 ### Setting Up from the Zip
@@ -182,10 +182,10 @@ If you received this as a zip or are migrating from a `cargo new` single-crate p
 ```bash
 # 1. Unzip into your project root
 unzip owasp_workspace.zip
-cp -r owasp_workspace/* ./oxidize/
+cp -r owasp_workspace/* ./purionX/
 
 # 2. Remove the old single-crate src/ folder
-cd oxidize
+cd purionX
 rm -rf src/
 
 # 3. Verify the workspace compiles
@@ -195,7 +195,7 @@ cargo check --workspace
 cargo build --release
 
 # 5. Run it
-./target/release/oxidize . --format console
+./target/release/purionX . --format console
 ```
 
 ---
@@ -206,56 +206,56 @@ cargo build --release
 
 ```bash
 # Scan a single file
-oxidize path/to/main.rs
+purionX path/to/main.rs
 
 # Scan an entire project directory
-oxidize ./my_project
+purionX ./my_project
 
 # Scan the current directory
-oxidize .
+purionX .
 ```
 
 ### Output Formats
 
 ```bash
 # Colored terminal output (default)
-oxidize . --format console
+purionX . --format console
 
 # JSON report saved to file
-oxidize . --format json --out report.json
+purionX . --format json --out report.json
 
 # SARIF 2.1.0 (for GitHub Code Scanning / Security tab)
-oxidize . --format sarif --out results.sarif
+purionX . --format sarif --out results.sarif
 
 # Self-contained HTML dashboard
-oxidize . --format html --out report.html
+purionX . --format html --out report.html
 ```
 
 ### Filtering by Severity
 
 ```bash
 # Only show HIGH and CRITICAL (recommended for CI gate)
-oxidize . --min-severity high
+purionX . --min-severity high
 
 # Only show CRITICAL
-oxidize . --min-severity critical
+purionX . --min-severity critical
 
 # Show everything including INFO hints
-oxidize . --min-severity info
+purionX . --min-severity info
 ```
 
 ### Scan Without Failing the Pipeline
 
 ```bash
 # Always exit 0 — useful for reporting without blocking
-oxidize . --no-fail --format json --out report.json
+purionX . --no-fail --format json --out report.json
 ```
 
 ### Full CLI Reference
 
 ```
 USAGE:
-    oxidize [OPTIONS] <TARGET>
+    purionX [OPTIONS] <TARGET>
 
 ARGUMENTS:
     <TARGET>    File or directory to scan
@@ -355,7 +355,7 @@ SARIF 2.1.0 format, compatible with GitHub Advanced Security, VS Code SARIF View
   "runs": [{
     "tool": {
       "driver": {
-        "name": "oxidize",
+        "name": "purionX",
         "version": "1.0.0",
         "rules": [ ... ]
       }
@@ -385,7 +385,7 @@ The HTML report is a fully self-contained single-file dashboard with:
 - No external dependencies — works fully offline, shareable as a single file
 
 ```bash
-oxidize . --format html --out report.html
+purionX . --format html --out report.html
 open report.html   # macOS
 xdg-open report.html   # Linux
 start report.html   # Windows
@@ -409,7 +409,7 @@ The included workflow at `.github/workflows/ci.yml` does three things automatica
 # Key security scan step (from ci.yml)
 - name: Run OWASP scan to SARIF
   run: |
-    ./target/release/oxidize . \
+    ./target/release/purionX . \
       --format sarif \
       --out results.sarif \
       --min-severity medium \
@@ -421,7 +421,7 @@ The included workflow at `.github/workflows/ci.yml` does three things automatica
     sarif_file: results.sarif
 
 - name: Fail build on HIGH+ findings
-  run: ./target/release/oxidize . --min-severity high
+  run: ./target/release/purionX . --min-severity high
 ```
 
 After the SARIF upload, findings appear under **Security → Code scanning alerts** in your repository.
@@ -429,13 +429,13 @@ After the SARIF upload, findings appear under **Security → Code scanning alert
 ### GitLab CI
 
 ```yaml
-oxidize:
+purionX:
   image: rust:latest
   stage: security
   script:
     - cargo build --release -p scanner-cli
-    - ./target/release/oxidize . --format sarif --out gl-sast-report.sarif --no-fail
-    - ./target/release/oxidize . --min-severity high
+    - ./target/release/purionX . --format sarif --out gl-sast-report.sarif --no-fail
+    - ./target/release/purionX . --min-severity high
   artifacts:
     reports:
       sast: gl-sast-report.sarif
@@ -452,7 +452,7 @@ Block commits that introduce HIGH or CRITICAL vulnerabilities:
 # Create the hook file
 cat > .git/hooks/pre-commit << 'EOF'
 #!/bin/sh
-oxidize . --min-severity high --no-color
+purionX . --min-severity high --no-color
 if [ $? -ne 0 ]; then
   echo ""
   echo "OWASP scan found HIGH or CRITICAL issues. Fix them before committing."
@@ -612,7 +612,7 @@ cargo clippy --all-targets --all-features -- -D warnings
 
 # Build and self-scan
 cargo build --release -p scanner-cli
-./target/release/oxidize . --min-severity medium
+./target/release/purionX . --min-severity medium
 ```
 
 ### Reporting Issues
@@ -635,7 +635,7 @@ Open a GitHub issue with the following details:
 - [A02:2021 Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 - [SARIF 2.1.0 Specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
 - [GitHub Code Scanning — SARIF Upload](https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)
-- [oxidize Advisory Database](https://oxidize.org/)
+- [purionX Advisory Database](https://purionX.org/)
 - [Rust Secure Coding Guidelines](https://anssi-fr.github.io/rust-guide/)
 
 ---
