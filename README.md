@@ -635,7 +635,7 @@ Open a GitHub issue with the following details:
 - [A02:2021 Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 - [SARIF 2.1.0 Specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
 - [GitHub Code Scanning — SARIF Upload](https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)
-- [RustSec Advisory Database](https://rustsec.org/)
+- [oxidize Advisory Database](https://oxidize.org/)
 - [Rust Secure Coding Guidelines](https://anssi-fr.github.io/rust-guide/)
 
 ---
