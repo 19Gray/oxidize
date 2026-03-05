@@ -18,7 +18,7 @@
 **A fast, zero-dependency static analysis tool written in Rust**
 **that scans your codebase for OWASP Top 10 vulnerabilities**
 
-[![CI](https://github.com/19Gray/owasp-scanner/actions/workflows/ci.yml/badge.svg)](https://github.com/19Gray/owasp-scanner/actions)
+[![CI](https://github.com/19Gray/RustSecScan/actions/workflows/ci.yml/badge.svg)](https://github.com/19Gray/RustSecScan/actions)
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](https://www.rust-lang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![OWASP Top 10](https://img.shields.io/badge/OWASP-Top%2010-red.svg)](https://owasp.org/Top10/)
@@ -81,7 +81,7 @@ Most security tools are slow, expensive, or cloud-dependent. RustSecScan is:
 This project is a **Cargo workspace** with three crates, each with a single responsibility:
 
 ```
-owasp-scanner/
+RustSecScan/
 ├── Cargo.toml                        ← Workspace root (shared dependencies)
 ├── Cargo.lock                        ← Lock file (commit this!)
 ├── .github/
@@ -161,8 +161,8 @@ rustc --version   # should print 1.75.0 or higher
 
 ```bash
 # Clone the repository
-git clone https://github.com/19Gray/owasp-scanner.git
-cd owasp-scanner
+git clone https://github.com/19Gray/RustSecScan.git
+cd RustSecScan
 
 # Build the release binary
 cargo build --release -p scanner-cli
@@ -355,7 +355,7 @@ SARIF 2.1.0 format, compatible with GitHub Advanced Security, VS Code SARIF View
   "runs": [{
     "tool": {
       "driver": {
-        "name": "owasp-scanner",
+        "name": "RustSecScan",
         "version": "1.0.0",
         "rules": [ ... ]
       }
