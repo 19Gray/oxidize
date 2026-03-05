@@ -647,5 +647,5 @@ MIT License — see [LICENSE](LICENSE) for full terms.
 ---
 
 <div align="center">
-Built with Rust — fast, safe, and fearless.
+Securing code at lightning speed — powered by Rust.
 </div>
