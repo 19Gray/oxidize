@@ -220,34 +220,34 @@ purionX .
 ## scan diffrent projects
 
 ```bash
-./target/release/owasp-scan /home/your_username/projectfolder/project_name --format console
+./target/release/purionX /home/your_username/projectfolder/project_name --format console
 ```
 
 # severinity filter
 
 ```bash
-./target/release/owasp-scan /home/your username/project_folder/project_name --min-severity medium
+./target/release/purionX /home/your username/project_folder/project_name --min-severity medium
 ```
 
 ## Html fomart
 
 ```bash
-./target/release/owasp-scan /home/your username/project_folder/project_name --format html --out ~/Desktop/medref-report.html
+./target/release/purionX /home/your username/project_folder/project_name --format html --out ~/Desktop/medref-report.html
 ```
 
 ## JSON format
 
 ```bash
-./target/release/owasp-scan /home/your username/projectfolder/project name --format json --out ~/Desktop/medref-report.json
+./target/release/purionX /home/your username/projectfolder/project name --format json --out ~/Desktop/medref-report.json
 ```
 
 ### EXAMPLE
 
-## ia hafu a project named medref in projects folder for user teddy
+## if you have a project named medref in projects folder for user teddy
 
 ## then the appropriate scan will be
 
-### ./target/release/owasp-scan /home/teddy/projects/medref --format console
+### ./target/release/purionX /home/teddy/projects/medref --format console
 
 ### Output Formats
 
