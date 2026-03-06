@@ -662,11 +662,11 @@ Open a GitHub issue with the following details:
 
 ## References
 
-- [OWASP Top 10 (2021)](https://owasp.org/Top10/)
-- [A01:2021 Broken Access Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control/)
-- [A02:2021 Security Misconfiguration](https://owasp.org/Top10/A02_2021-Security_Misconfiguration/)
-- [A08:2021 Software and Data Integrity Failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/)
-- [A02:2021 Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
+- [OWASP Top 10 (2026)](https://owasp.org/Top10/)
+- [A01:2026 Broken Access Control](https://owasp.org/Top10/A01_20226-Broken_Access_Control/)
+- [A02:2026 Security Misconfiguration](https://owasp.org/Top10/A02_2026-Security_Misconfiguration/)
+- [A08:2026 Software and Data Integrity Failures](https://owasp.org/Top10/A08_2026-Software_and_Data_Integrity_Failures/)
+- [A02:2026 Cryptographic Failures](https://owasp.org/Top10/A02_2026-Cryptographic_Failures/)
 - [SARIF 2.1.0 Specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
 - [GitHub Code Scanning — SARIF Upload](https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)
 - [purionX Advisory Database](https://purionX.org/)
