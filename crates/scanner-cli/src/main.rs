@@ -8,9 +8,9 @@ use std::process;
 /// OWASP Static Vulnerability Scanner - A01, A02, A03, A04
 #[derive(Parser, Debug)]
 #[command(
-    name    = "owasp-scan",
+    name = "purionX",
     version,
-    about   = "Scans source code and configs for OWASP Top-10 vulnerabilities",
+    about = "Scans source code and configs for OWASP Top-10 vulnerabilities"
 )]
 struct Cli {
     /// File or directory to scan
@@ -54,10 +54,10 @@ enum SeverityArg {
 impl From<SeverityArg> for Severity {
     fn from(s: SeverityArg) -> Self {
         match s {
-            SeverityArg::Info     => Severity::Info,
-            SeverityArg::Low      => Severity::Low,
-            SeverityArg::Medium   => Severity::Medium,
-            SeverityArg::High     => Severity::High,
+            SeverityArg::Info => Severity::Info,
+            SeverityArg::Low => Severity::Low,
+            SeverityArg::Medium => Severity::Medium,
+            SeverityArg::High => Severity::High,
             SeverityArg::Critical => Severity::Critical,
         }
     }
@@ -67,9 +67,9 @@ impl From<Format> for OutputFormat {
     fn from(f: Format) -> Self {
         match f {
             Format::Console => OutputFormat::Console,
-            Format::Json    => OutputFormat::Json,
-            Format::Sarif   => OutputFormat::Sarif,
-            Format::Html    => OutputFormat::Html,
+            Format::Json => OutputFormat::Json,
+            Format::Sarif => OutputFormat::Sarif,
+            Format::Html => OutputFormat::Html,
         }
     }
 }
